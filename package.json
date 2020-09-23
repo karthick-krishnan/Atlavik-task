@@ -1,0 +1,21 @@
+{
+    "name": "Atlavik-Task",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "client": "cd client && npm start",
+        "server": "cd server && npm start",
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "install:all": "npm install && concurrently \"cd server && npm install\" \"cd client && npm install\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "3.5.1"
+    },
+    "dependencies": {
+        "mocha": "^8.1.3"
+    }
+}
