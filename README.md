@@ -29,7 +29,9 @@ To get Started please follow the below Requirements
 ```window
 $ git clone ""
 $ npm run install:all                   # Install project for both client and server project dependencies
-$ npm run start                         # Compile and launch
+$ npm run start                         # Compile and launch both client and server
+$ npm run client						# Compile and launch client
+$ npm run server						# Compile and launch server
 $ npm run client:test                   # Run client test cases
 $ npm run server:test                   # Run server test cases
 ```

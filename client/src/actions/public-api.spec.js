@@ -10,7 +10,7 @@ import {
   fetchStart,
   fetchSuccess,
   fetchFailure,
-  searchData
+  getData
 } from './public-api';
 
 const middlewares = [thunk]
@@ -44,7 +44,7 @@ describe('Public api list actions', () => {
 });
 
 
-describe('searchData', () => {
+describe('getData', () => {
   let store;
 
   beforeEach(() => {
@@ -62,10 +62,10 @@ describe('searchData', () => {
       headers: { 'content-type': 'application/json' }
     })
 
-    return store.dispatch(searchData()).then(() => {
+    return store.dispatch(getData()).then(() => {
       let searchURL = fetchMock.lastUrl()
       let queryParams = searchURL.split('?')[1]
-    expect(new URLSearchParams(queryParams).get('category')).toEqual(null);
+      expect(new URLSearchParams(queryParams).get('category')).toEqual(null);
     })
   });
 
@@ -76,7 +76,7 @@ describe('searchData', () => {
       headers: { 'content-type': 'application/json' }
     })
 
-    return store.dispatch(searchData('abc')).then(() => {
+    return store.dispatch(getData('abc')).then(() => {
       let searchURL = fetchMock.lastUrl()
       let queryParams = searchURL.split('?')[1]
       expect(new URLSearchParams(queryParams).get('category')).toEqual('abc');
@@ -95,7 +95,7 @@ describe('searchData', () => {
       { type: FETCH_SUCCESS, payload: apiList }
     ]
 
-    return store.dispatch(searchData()).then(() => {
+    return store.dispatch(getData()).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
     })
   })
@@ -111,7 +111,7 @@ describe('searchData', () => {
       { type: FETCH_FAILURE, payload: error }
     ]
 
-    return store.dispatch(searchData()).then(() => {
+    return store.dispatch(getData()).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
     })
   })
