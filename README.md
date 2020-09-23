@@ -27,7 +27,7 @@ To get Started please follow the below Requirements
 [requirements](#requirements), you can follow these steps to get the project up and running:
 
 ```window
-$ git clone ""
+$ git clone "https://github.com/karthick-krishnan/Atlavik-task.git"
 $ npm run install:all                   # Install project for both client and server project dependencies
 $ npm run start                         # Compile and launch both client and server
 $ npm run client						# Compile and launch client

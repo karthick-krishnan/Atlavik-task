@@ -2,8 +2,12 @@
 const axios = require('axios');
 const { urlConstants } = require('../utils/constants');
 const component = "record.getRecords.components";
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-
+//adding this to overcome the SSL certificate issue for entries Url
+const mode = 'development';
+if (mode == 'development') {
+    console.log("Rejecting node tls");
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+}
 
 /**
  * Method for get Entry Records 
